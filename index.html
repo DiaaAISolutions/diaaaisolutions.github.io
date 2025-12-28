@@ -2,170 +2,187 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Diaa AI Pro</title>
+<title>Diaa AI Pro | Smart Digital Solutions</title>
+
+<meta name="description" content="Diaa AI Pro - خدمات سوشيال ميديا، ذكاء اصطناعي، أمن سيبراني، تصميم مواقع احترافية">
+<meta name="keywords" content="Diaa AI, ذكاء اصطناعي, سوشيال ميديا, تصميم مواقع">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family:'Cairo',sans-serif;
-  background:#0b0f1a;
-  color:#fff;
-  overflow-x:hidden;
+font-family:'Cairo',sans-serif;
+background:#0b0f1a;
+color:#fff;
+overflow-x:hidden
 }
 
-/* ===== NAV ===== */
+/* NAV */
 nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  padding:15px 40px;
-  display:flex;
-  justify-content:space-between;
-  background:rgba(0,0,0,.6);
-  backdrop-filter:blur(10px);
-  z-index:1000;
+position:fixed;
+top:0;
+width:100%;
+padding:15px 40px;
+background:rgba(0,0,0,.6);
+backdrop-filter:blur(10px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000
 }
 nav a{
-  color:#00eaff;
-  text-decoration:none;
-  margin:0 10px;
-  font-weight:bold;
+color:#00eaff;
+margin:0 10px;
+text-decoration:none;
+font-weight:bold
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364)
 }
-.hero h1{
-  font-size:48px;
-  color:#00eaff;
-}
-.hero p{
-  font-size:20px;
-  margin-top:15px;
-  opacity:.85;
-}
+.hero h1{font-size:52px;color:#00eaff}
+.hero p{max-width:700px;font-size:20px;opacity:.9}
 
-/* ===== SECTION ===== */
+/* SECTIONS */
 .section{
-  padding:90px 20px;
-  max-width:1200px;
-  margin:auto;
+padding:100px 20px;
+max-width:1200px;
+margin:auto
 }
 .section h2{
-  text-align:center;
-  color:#00eaff;
-  margin-bottom:40px;
+text-align:center;
+color:#00eaff;
+margin-bottom:40px
 }
 
-/* ===== SERVICES ===== */
+/* SERVICES */
 .services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px
 }
 .service{
-  background:#111827;
-  padding:30px;
-  border-radius:20px;
-  text-align:center;
-  transition:.5s;
-  transform-style:preserve-3d;
+background:#111827;
+padding:30px;
+border-radius:20px;
+text-align:center;
+transition:.6s;
+transform-style:preserve-3d;
+cursor:pointer;
+box-shadow:0 0 20px rgba(0,234,255,.1)
 }
 .service:hover{
-  transform:rotateY(10deg) rotateX(5deg) translateY(-12px);
-  box-shadow:0 25px 50px rgba(0,234,255,.35);
+transform:rotateY(15deg) rotateX(8deg) translateY(-15px);
+box-shadow:0 30px 60px rgba(0,234,255,.4)
+}
+.service img{
+width:120px;
+margin-bottom:15px
+}
+.service button{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+border-radius:20px;
+background:#00eaff;
+color:#000;
+font-weight:bold;
+cursor:pointer
 }
 
-/* ===== PORTFOLIO ===== */
-.portfolio{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+/* TESTIMONIALS */
+.testimonials{
+overflow:hidden
 }
-.portfolio .item{
-  position:relative;
-  overflow:hidden;
-  border-radius:15px;
+.testimonials-track{
+display:flex;
+gap:20px;
+animation:move 25s linear infinite
 }
-.portfolio img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  transition:.4s;
+.testimonial{
+min-width:280px;
+background:#020617;
+padding:25px;
+border-radius:18px;
+text-align:center
 }
-.portfolio .overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.7);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
-  transition:.4s;
-}
-.portfolio .overlay span{
-  color:#00eaff;
-  font-size:18px;
-  font-weight:bold;
-}
-.portfolio .item:hover img{transform:scale(1.1)}
-.portfolio .item:hover .overlay{opacity:1}
-
-/* ===== SLIDER ===== */
-.slider{
-  overflow:hidden;
-}
-.slider-track{
-  display:flex;
-  gap:20px;
-  animation:slide 20s linear infinite;
-}
-.card{
-  min-width:260px;
-  background:#020617;
-  padding:25px;
-  border-radius:15px;
-  text-align:center;
-}
-@keyframes slide{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
+.testimonial span{color:#00eaff;font-size:20px}
+@keyframes move{
+from{transform:translateX(0)}
+to{transform:translateX(-50%)}
 }
 
-/* ===== FACEBOOK BUTTON ===== */
+/* CHATBOT */
+#chatbot{
+position:fixed;
+bottom:20px;
+right:20px;
+width:320px;
+background:#020617;
+border-radius:15px;
+overflow:hidden;
+display:none;
+z-index:1000
+}
+#chatbot header{
+background:#00eaff;
+color:#000;
+padding:10px;
+font-weight:bold
+}
+#chatbot .body{
+padding:15px;
+font-size:14px
+}
+#chatbot button{
+margin-top:10px;
+width:100%;
+padding:10px;
+border:none;
+background:#1877f2;
+color:#fff;
+border-radius:10px;
+cursor:pointer
+}
+
+/* BUTTONS */
 .fb-btn{
-  position:fixed;
-  left:20px;
-  bottom:20px;
-  background:#1877f2;
-  color:#fff;
-  padding:14px 20px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-  animation:pulse 1.5s infinite;
+position:fixed;
+left:20px;
+bottom:20px;
+background:#1877f2;
+color:#fff;
+padding:14px 20px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold
 }
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(24,119,242,.7)}
-  70%{box-shadow:0 0 0 15px rgba(24,119,242,0)}
-  100%{box-shadow:0 0 0 0 rgba(24,119,242,0)}
+.ai-btn{
+position:fixed;
+right:20px;
+bottom:90px;
+background:#00eaff;
+color:#000;
+padding:14px 20px;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer
 }
 
-/* ===== FOOTER ===== */
 footer{
-  background:#000;
-  padding:30px;
-  text-align:center;
-  opacity:.7;
+text-align:center;
+padding:30px;
+background:#000;
+opacity:.8
 }
 </style>
 </head>
@@ -173,78 +190,120 @@ footer{
 <body>
 
 <nav>
-  <div><strong>Diaa AI Pro</strong></div>
-  <div>
-    <a href="#home">الرئيسية</a>
-    <a href="#about">من أنا</a>
-    <a href="#services">خدماتي</a>
-    <a href="#contact">تواصل</a>
-  </div>
+<strong>Diaa AI Pro</strong>
+<div>
+<a href="#home">الرئيسية</a>
+<a href="#services">الخدمات</a>
+<a href="#contact">تواصل</a>
+</div>
 </nav>
 
 <section class="hero" id="home">
-  <h1>Diaa AI Pro</h1>
-  <p>حلول سوشيال ميديا – أمن سيبراني – تصميم مواقع احترافية</p>
+<h1>Diaa AI Pro</h1>
+<p>ذكاء اصطناعي • سوشيال ميديا • أمن سيبراني • تصميم مواقع</p>
 </section>
 
-<section class="section" id="about">
+<section class="section">
 <h2>من أنا</h2>
 <p style="text-align:center;max-width:800px;margin:auto">
-أنا ضياء محسن، متخصص في حلول السوشيال ميديا، الأمن السيبراني، وإنشاء مواقع تساعدك على جذب العملاء والنمو الرقمي.
+أنا ضياء محسن، متخصص في حلول السوشيال ميديا، الأمن السيبراني، وإنشاء مواقع ذكية تساعدك على جذب العملاء وتحقيق نمو رقمي حقيقي.
 </p>
 </section>
 
 <section class="section" id="services">
-<h2>خدماتي</h2>
+<h2>خدماتنا</h2>
 <div class="services">
-  <div class="service">متابعين فيسبوك عرب وأجانب</div>
-  <div class="service">إنستجرام – تفاعل حقيقي</div>
-  <div class="service">يوتيوب – مشاهدات واشتراكات</div>
-  <div class="service">تيك توك – انتشار سريع</div>
-  <div class="service">تيليجرام – إدارة قنوات</div>
-  <div class="service">الأمن السيبراني وحماية الحسابات</div>
-  <div class="service">إنشاء مواقع احترافية</div>
-</div>
-</section>
 
-<section class="section">
-<h2>معرض أعمالنا</h2>
-<div class="portfolio">
-  <div class="item"><img src="https://via.placeholder.com/400x300"><div class="overlay"><span>سوشيال ميديا</span></div></div>
-  <div class="item"><img src="https://via.placeholder.com/400x300"><div class="overlay"><span>تصميم مواقع</span></div></div>
-  <div class="item"><img src="https://via.placeholder.com/400x300"><div class="overlay"><span>حملات إعلانية</span></div></div>
+<div class="service">
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png">
+<h3>متابعين فيسبوك</h3>
+<button onclick="order()">طلب الخدمة</button>
+</div>
+
+<div class="service">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+<h3>إنستجرام</h3>
+<button onclick="order()">طلب الخدمة</button>
+</div>
+
+<div class="service">
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+<h3>يوتيوب</h3>
+<button onclick="order()">طلب الخدمة</button>
+</div>
+
+<div class="service">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+<h3>تيك توك</h3>
+<button onclick="order()">طلب الخدمة</button>
+</div>
+
+<div class="service">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
+<h3>تيليجرام</h3>
+<button onclick="order()">طلب الخدمة</button>
+</div>
+
+<div class="service">
+<img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png">
+<h3>الأمن السيبراني</h3>
+<button onclick="order()">طلب الخدمة</button>
+</div>
+
 </div>
 </section>
 
 <section class="section">
 <h2>آراء العملاء</h2>
-<div class="slider">
-  <div class="slider-track">
-    <div class="card">⭐⭐⭐⭐⭐<p>خدمة ممتازة</p></div>
-    <div class="card">⭐⭐⭐⭐⭐<p>احترافية وسرعة</p></div>
-    <div class="card">⭐⭐⭐⭐⭐<p>نتائج قوية</p></div>
-    <div class="card">⭐⭐⭐⭐⭐<p>دعم ممتاز</p></div>
-    <div class="card">⭐⭐⭐⭐⭐<p>خدمة ممتازة</p></div>
-    <div class="card">⭐⭐⭐⭐⭐<p>احترافية وسرعة</p></div>
-  </div>
+<div class="testimonials">
+<div class="testimonials-track">
+
+<div class="testimonial"><span>⭐⭐⭐⭐⭐</span><p>خدمة ممتازة وسرعة تنفيذ</p></div>
+<div class="testimonial"><span>⭐⭐⭐⭐⭐</span><p>احترافية وثقة عالية</p></div>
+<div class="testimonial"><span>⭐⭐⭐⭐⭐</span><p>نتائج قوية جدًا</p></div>
+<div class="testimonial"><span>⭐⭐⭐⭐⭐</span><p>أفضل تعامل</p></div>
+
+<div class="testimonial"><span>⭐⭐⭐⭐⭐</span><p>خدمة ممتازة وسرعة تنفيذ</p></div>
+<div class="testimonial"><span>⭐⭐⭐⭐⭐</span><p>احترافية وثقة عالية</p></div>
+
+</div>
 </div>
 </section>
 
 <section class="section" id="contact">
-<h2>تواصل معنا</h2>
+<h2>التواصل والدفع</h2>
 <p style="text-align:center">
-📞 Vodafone Cash: <strong>01021292994</strong><br>
+💳 Vodafone Cash: <strong>01021292994</strong><br>
 📘 Facebook: diaa.coom
 </p>
 </section>
 
-<a class="fb-btn" href="https://www.facebook.com/diaa.coom" target="_blank">
-Follow
-</a>
+<div class="ai-btn" onclick="openChat()">💬 Diaa AI</div>
+
+<div id="chatbot">
+<header>Diaa AI 🤖</header>
+<div class="body" id="chatText">
+أهلاً 👋 أنا Diaa AI  
+<br>اسألني عن أي خدمة أو اضغط طلب الخدمة
+<button onclick="location.href='https://www.facebook.com/diaa.coom'">تواصل فيسبوك</button>
+</div>
+</div>
+
+<a class="fb-btn" href="https://www.facebook.com/diaa.coom" target="_blank">Follow</a>
 
 <footer>
 © 2025 Diaa AI Pro – تصميم ضياء محسن
 </footer>
+
+<script>
+function openChat(){
+document.getElementById('chatbot').style.display='block'
+document.getElementById('chatText').innerHTML="🤖 Diaa AI: نحن نقدم حلول سوشيال ميديا، أمن سيبراني، وتصميم مواقع. اختر خدمة وسأتواصل معك فورًا."
+}
+function order(){
+openChat()
+}
+</script>
 
 </body>
 </html>
