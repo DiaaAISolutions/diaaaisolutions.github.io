@@ -285,6 +285,26 @@ font-size:12px;
     padding: 25px;
   }
 }  
+/* AUTO SLIDER REVIEWS */
+.review-card {
+  display: none;
+  animation: slideFade 0.8s ease-in-out;
+}
+
+.review-card.active {
+  display: block;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+   }
 </style>
 </head>
 
@@ -414,32 +434,23 @@ i++;
 },4000);
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const reviews = document.querySelectorAll(".review-card");
-  let currentIndex = 0;
+
+  const reviews = document.querySelectorAll('.review-card');
+  let currentReview = 0;
 
   function showReview(index) {
-    reviews.forEach((review, i) => {
-      review.style.display = i === index ? "block" : "none";
-    });
+    reviews.forEach(review => review.classList.remove('active'));
+    reviews[index].classList.add('active');
   }
 
-  // إظهار أول رأي
-  showReview(currentIndex);
+  function autoSlide() {
+    currentReview = (currentReview + 1) % reviews.length;
+    showReview(currentReview);
+  }
 
-  // التالي
-  window.nextReview = function () {
-    currentIndex = (currentIndex + 1) % reviews.length;
-    showReview(currentIndex);
-  };
+  showReview(currentReview);
+  setInterval(autoSlide, 5000);
 
-  // السابق
-  window.prevReview = function () {
-    currentIndex =
-      (currentIndex - 1 + reviews.length) % reviews.length;
-    showReview(currentIndex);
-  };
-});
 </script>
 </body>
 </html>
