@@ -403,33 +403,26 @@ document.write(services.map(s=>`
 </div>
 </section>
 
-<a class="float whatsapp" href="https://wa.me/201021292994">WhatsApp</a>
-<a class="float facebook" href="https://www.facebook.com/diaa.coom">Facebook</a>
 
-<div class="chatbot" id="chatbot"></div>
+<!-- Chatbot -->
+<div id="chatbot">
+  <div id="chatbot-header">🤖 Diaa AI Bot</div>
+  <div id="chatbot-body">
+    <div class="bot-msg">👋 مرحبًا! سعيد بزيارتك لموقع Diaa AI</div>
+  </div>
+</div>
+
+<div id="chatbot-toggle">🤖</div>
 
 <footer>© 2025 Diaa AI Pro</footer>
+   
 
 <script>
 document.querySelectorAll('.faq-question').forEach(q=>{
 q.onclick=()=>q.parentElement.classList.toggle('active');
 });
 
-/* CHAT BOT */
-const bot=document.getElementById('chatbot');
-const msgs=[
-"مرحباً 👋 سعدنا بزيارتك",
-"نقدم خدمات سوشيال ميديا وذكاء اصطناعي",
-"برمجة وتصميم وأمن سيبراني",
-"تواصل معنا الآن 🚀"
-];
-let i=0;
-setTimeout(()=>bot.style.display='block',2000);
-setInterval(()=>{
-bot.textContent=msgs[i%msgs.length];
-i++;
-},4000);
-</script>
+
 <script>
 
   const reviews = document.querySelectorAll('.review-card');
@@ -449,5 +442,14 @@ i++;
   setInterval(autoSlide, 5000);
 
 </script>
+<script>
+  const chatbot = document.getElementById("chatbot");
+  const toggleBtn = document.getElementById("chatbot-toggle");
+
+  toggleBtn.addEventListener("click", () => {
+    chatbot.style.display =
+      chatbot.style.display === "block" ? "none" : "block";
+  });
+</script>   
 </body>
 </html>
