@@ -5,248 +5,316 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diaa AI Pro</title>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
-
 <style>
-:root{
-  --bg:#05060a;
-  --card:#0c1020;
-  --neon:#00f6ff;
-  --purple:#7a5cff;
-  --text:#ffffff;
+/* ================= RESET ================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',Tahoma,sans-serif
 }
-*{box-sizing:border-box;margin:0;padding:0;font-family:'Cairo',sans-serif}
+
 body{
-  background:radial-gradient(circle at top,#0a0f2a,#05060a);
-  color:var(--text);
-  overflow-x:hidden;
+background:#050814;
+color:#fff;
+overflow-x:hidden
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 nav{
-  position:fixed;
-  top:0;left:0;
-  width:100%;
-  padding:15px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  backdrop-filter:blur(10px);
-  background:rgba(10,15,40,.4);
-  z-index:1000;
+position:fixed;
+top:0;
+width:100%;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(5,8,20,.5);
+backdrop-filter:blur(12px);
+z-index:999
 }
+
 .logo{
-  font-size:18px;
-  font-weight:bold;
-  color:var(--neon);
-  animation:glow 2s infinite alternate;
+font-size:18px;
+font-weight:bold;
+color:#5efcff;
+text-shadow:0 0 10px #5efcff;
+animation:glow 2s infinite alternate
 }
+
 @keyframes glow{
-  from{opacity:.4}
-  to{text-shadow:0 0 15px var(--neon)}
-}
-nav a{
-  margin:0 10px;
-  color:#fff;
-  text-decoration:none;
-  font-size:14px;
+from{opacity:.6}
+to{opacity:1}
 }
 
-/* HERO */
+nav ul{
+display:flex;
+gap:20px;
+list-style:none
+}
+
+nav ul li{
+cursor:pointer;
+opacity:.8
+}
+
+/* ================= HERO ================= */
 .hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:120px 20px;
-}
-.hero h1{
-  font-size:40px;
-  background:linear-gradient(90deg,var(--neon),var(--purple));
-  -webkit-background-clip:text;
-  color:transparent;
-}
-.hero p{opacity:.8;margin:15px 0}
-.cta{
-  padding:12px 30px;
-  border:1px solid var(--neon);
-  color:var(--neon);
-  background:none;
-  border-radius:30px;
-  cursor:pointer;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:120px 40px 60px
 }
 
-/* SECTIONS */
-section{padding:80px 40px}
-h2{text-align:center;margin-bottom:40px}
+.hero-text h1{
+font-size:2.4rem;
+color:#5efcff
+}
 
-/* SERVICES */
-.services-wrapper{
-  overflow:hidden;
+.hero-text p{
+margin:15px 0;
+opacity:.85
 }
-.services-track{
-  display:flex;
-  gap:20px;
-  animation:scroll 40s linear infinite;
-}
-.services-wrapper:hover .services-track{
-  animation-play-state:paused;
-}
-@keyframes scroll{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-}
-.service{
-  min-width:250px;
-  background:var(--card);
-  padding:20px;
-  border-radius:20px;
-  border:1px solid rgba(0,246,255,.2);
-}
-.service img{
-  width:40px;margin-bottom:10px;
-}
-.service h4{color:var(--neon);font-size:16px}
 
-/* TESTIMONIALS */
-.testimonials{
-  display:flex;
-  gap:20px;
-  animation:scroll 30s linear infinite;
+.hero-text button{
+padding:12px 28px;
+border:none;
+border-radius:30px;
+background:linear-gradient(90deg,#00e5ff,#7c7cff);
+font-weight:bold;
+cursor:pointer
 }
-.testimonials:hover{animation-play-state:paused}
-.review{
-  min-width:280px;
-  background:var(--card);
-  padding:20px;
-  border-radius:20px;
-}
-.stars{color:gold}
 
-/* FAQ */
+.robot{
+width:220px;
+height:220px;
+border-radius:50%;
+background:radial-gradient(circle,#00e5ff,#050814);
+box-shadow:0 0 50px #00e5ff;
+animation:float 4s ease-in-out infinite
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-20px)}
+100%{transform:translateY(0)}
+}
+
+/* ================= SECTIONS ================= */
+section{
+padding:60px 20px
+}
+
+h2{
+text-align:center;
+color:#5efcff;
+margin-bottom:30px
+}
+
+/* ================= SLIDERS ================= */
+.slider{
+display:flex;
+gap:20px;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+padding-bottom:10px
+}
+.slider::-webkit-scrollbar{display:none}
+
+.card{
+min-width:260px;
+background:rgba(255,255,255,.05);
+border-radius:16px;
+padding:20px;
+scroll-snap-align:start;
+box-shadow:0 0 15px rgba(0,229,255,.2)
+}
+
+.card:hover{
+transform:translateY(-8px)
+}
+
+.icon{
+font-size:30px;
+color:#5efcff;
+margin-bottom:10px
+}
+
+/* ================= TESTIMONIAL ================= */
+.stars{color:gold;margin:6px 0}
+
+/* ================= FAQ ================= */
 .faq-item{
-  background:var(--card);
-  margin-bottom:15px;
-  padding:15px;
-  border-radius:15px;
-  cursor:pointer;
+background:rgba(255,255,255,.05);
+border-radius:12px;
+margin-bottom:10px;
+padding:15px;
+cursor:pointer
 }
-.faq-item p{display:none;opacity:.8}
-.faq-item.active p{display:block}
 
-/* BOT */
+.faq-answer{
+display:none;
+opacity:.85;
+margin-top:10px
+}
+
+/* ================= BOT ================= */
 .bot{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:60px;height:60px;
-  background:radial-gradient(circle,var(--neon),#004);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  animation:pulse 2s infinite;
+position:fixed;
+bottom:20px;
+left:20px;
+width:60px;
+height:60px;
+border-radius:50%;
+background:radial-gradient(circle,#00e5ff,#050814);
+box-shadow:0 0 25px #00e5ff;
+animation:pulse 2s infinite;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px
 }
-@keyframes pulse{
-  0%{box-shadow:0 0 10px var(--neon)}
-  100%{box-shadow:0 0 30px var(--neon)}
-}
-.bot span{font-size:26px}
 
-/* FACEBOOK */
-.fb{
-  display:inline-block;
-  padding:12px 30px;
-  border-radius:30px;
-  background:linear-gradient(90deg,#1877f2,var(--neon));
-  color:#fff;
-  text-decoration:none;
+@keyframes pulse{
+0%{box-shadow:0 0 15px #00e5ff}
+50%{box-shadow:0 0 35px #00e5ff}
+100%{box-shadow:0 0 15px #00e5ff}
+}
+
+/* ================= CONTACT ================= */
+.contact{
+text-align:center
+}
+
+.contact a{
+display:inline-block;
+padding:14px 32px;
+border-radius:40px;
+background:linear-gradient(90deg,#00e5ff,#7c7cff);
+color:#000;
+font-weight:bold;
+text-decoration:none
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+.hero{
+flex-direction:column;
+text-align:center
+}
+nav ul{display:none}
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="logo">Diaa AI Pro</div>
-  <div>
-    <a href="#about">من نحن</a>
-    <a href="#services">خدماتنا</a>
-    <a href="#reviews">الآراء</a>
-    <a href="#faq">الأسئلة</a>
-    <a href="#contact">تواصل</a>
-  </div>
+<div class="logo">Diaa AI Pro</div>
+<ul>
+<li>من نحن</li><li>الخدمات</li><li>الآراء</li><li>الأسئلة</li><li>تواصل</li>
+</ul>
 </nav>
 
-<section class="hero">
-  <div>
-    <h1>مستقبل التكنولوجيا يبدأ من هنا</h1>
-    <p>حلول ذكاء اصطناعي وتصميمات عالمية</p>
-    <button class="cta">اطلب خدمتك الآن</button>
-  </div>
-</section>
+<!-- HERO -->
+<div class="hero">
+<div class="hero-text">
+<h1>مستقبل التكنولوجيا يبدأ من هنا</h1>
+<p>حلول ذكاء اصطناعي وتحول رقمي عالمية</p>
+<button>اطلب خدمتك الآن</button>
+</div>
+<div class="robot"></div>
+</div>
 
-<section id="services">
+<!-- SERVICES -->
+<section>
 <h2>خدماتنا</h2>
-<div class="services-wrapper">
-<div class="services-track">
-<script>
-const services=[
-"تصميم مواقع","UI UX","تطبيقات موبايل","ذكاء اصطناعي","شات بوت","تحليل بيانات",
-"أمن سيبراني","حماية مواقع","إدارة فيسبوك","إدارة إنستجرام","إدارة تيك توك",
-"إعلانات ممولة","SEO","تحسين سرعة","أنظمة CRM","أنظمة ERP","AI Marketing",
-"Video Editing","Motion Graphics","Branding","استشارات تقنية","أتمتة أعمال",
-"تحليل منافسين","AI للشركات","إدارة سيرفرات","Cloud","تحويل أفكار رقمية",
-"تصميم محتوى","بوستات احترافية","Chatbot Training","AI Tools","Automation",
-"Digital Transformation","Web Security","Mobile UX","AI Consulting","Data Science"
-];
-document.write(services.map(s=>`
-<div class="service">
-<img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
-<h4>${s}</h4>
-</div>`).join(''));
-</script>
+
+<div class="slider">
+<div class="card"><div class="icon">🌐</div>تصميم مواقع</div>
+<div class="card"><div class="icon">📱</div>تطبيقات موبايل</div>
+<div class="card"><div class="icon">🤖</div>شات بوت</div>
+<div class="card"><div class="icon">📊</div>تحليل بيانات</div>
+<div class="card"><div class="icon">🔐</div>أمن سيبراني</div>
+<div class="card"><div class="icon">🎯</div>تسويق رقمي</div>
+<div class="card"><div class="icon">🧠</div>ذكاء اصطناعي</div>
+<div class="card"><div class="icon">⚙️</div>أتمتة أعمال</div>
 </div>
+
+<div class="slider">
+<div class="card">SEO</div>
+<div class="card">Branding</div>
+<div class="card">UI UX</div>
+<div class="card">CRM</div>
+<div class="card">ERP</div>
+<div class="card">AI Marketing</div>
+<div class="card">Video Editing</div>
+</div>
+
+<div class="slider">
+<div class="card">Cloud</div>
+<div class="card">DevOps</div>
+<div class="card">Cyber Defense</div>
+<div class="card">AI Training</div>
+<div class="card">Automation</div>
+<div class="card">Data Science</div>
 </div>
 </section>
 
-<section id="reviews">
+<!-- TESTIMONIAL -->
+<section>
 <h2>آراء العملاء</h2>
-<div class="testimonials">
-<div class="review"><h4>سارة علي</h4><div class="stars">★★★★★</div><p>نتائج مذهلة خلال وقت قياسي</p></div>
-<div class="review"><h4>محمد حسن</h4><div class="stars">★★★★★</div><p>احترافية عالية جدًا</p></div>
-<div class="review"><h4>أحمد سمير</h4><div class="stars">★★★★★</div><p>أفضل تجربة تقنية</p></div>
-<div class="review"><h4>نورهان</h4><div class="stars">★★★★★</div><p>تصميم عالمي فعلاً</p></div>
-<div class="review"><h4>خالد</h4><div class="stars">★★★★★</div><p>ثقة وجودة</p></div>
+<div class="slider">
+<div class="card">أحمد علي<div class="stars">★★★★★</div>خدمة ممتازة</div>
+<div class="card">سارة محمد<div class="stars">★★★★★</div>تصميم عالمي</div>
+<div class="card">محمد حسن<div class="stars">★★★★★</div>احترافية عالية</div>
 </div>
 </section>
 
-<section id="faq">
+<!-- FAQ -->
+<section>
 <h2>الأسئلة الشائعة</h2>
-<div class="faq-item"><h4>هل الخدمات مناسبة للشركات؟</h4><p>نعم للأفراد والشركات</p></div>
-<div class="faq-item"><h4>مدة التنفيذ؟</h4><p>من 3 إلى 7 أيام</p></div>
-<div class="faq-item"><h4>هل يوجد دعم؟</h4><p>دعم فني كامل</p></div>
-<div class="faq-item"><h4>هل يمكن التخصيص؟</h4><p>بكل تأكيد</p></div>
 
-<h2 style="margin-top:40px">من هو ضياء محسن</h2>
+<div class="faq-item" onclick="toggleFaq(this)">
+هل الخدمات مناسبة للشركات؟
+<div class="faq-answer">نعم، للأفراد والشركات.</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+مدة التنفيذ؟
+<div class="faq-answer">حسب نوع المشروع.</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+هل يوجد دعم فني؟
+<div class="faq-answer">دعم كامل بعد التسليم.</div>
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section>
+<h2>من هو ضياء محسن</h2>
 <div class="faq-item">
-<p>مبرمج ومختص في الذكاء الاصطناعي والتحول الرقمي، أعمل على تحويل الأفكار إلى حلول تقنية ذكية.</p>
+مبرمج ومختص في الذكاء الاصطناعي والتحول الرقمي، أعمل على تحويل الأفكار إلى حلول تقنية ذكية تساعد الشركات على النمو.
 </div>
 </section>
 
-<section id="contact" style="text-align:center">
-<h2>تواصل معنا</h2>
-<a class="fb" href="https://www.facebook.com/diaa.coom" target="_blank">Facebook</a>
+<!-- CONTACT -->
+<section class="contact">
+<a href="https://www.facebook.com/diaa.coom" target="_blank">تواصل معنا عبر فيسبوك</a>
 </section>
 
-<div class="bot"><span>🤖</span></div>
+<!-- BOT -->
+<div class="bot">🤖</div>
 
 <script>
-document.querySelectorAll('.faq-item').forEach(i=>{
-  i.onclick=()=>i.classList.toggle('active')
-})
+function toggleFaq(el){
+let ans=el.querySelector('.faq-answer');
+ans.style.display=ans.style.display==='block'?'none':'block'
+}
 </script>
 
 </body>
