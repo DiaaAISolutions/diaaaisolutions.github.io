@@ -188,6 +188,103 @@ padding:20px;
 opacity:.6;
 font-size:12px;
 }
+/* =========================
+   REVIEWS SECTION
+========================= */
+
+.reviews-section {
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #050b1a, #020716);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 60px;
+}
+
+.reviews-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* REVIEW CARD */
+.review-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 30px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* HEADER */
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00f0ff, #6a00ff);
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.review-info h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.review-info span {
+  font-size: 14px;
+  color: #9aa4bf;
+}
+
+/* STARS */
+.stars {
+  color: #ffcc00;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* TEXT */
+.review-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #d7ddff;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  .review-card {
+    padding: 25px;
+  }
+}  
 </style>
 </head>
 
@@ -313,6 +410,33 @@ bot.textContent=msgs[i%msgs.length];
 i++;
 },4000);
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const reviews = document.querySelectorAll(".review-card");
+  let currentIndex = 0;
 
+  function showReview(index) {
+    reviews.forEach((review, i) => {
+      review.style.display = i === index ? "block" : "none";
+    });
+  }
+
+  // إظهار أول رأي
+  showReview(currentIndex);
+
+  // التالي
+  window.nextReview = function () {
+    currentIndex = (currentIndex + 1) % reviews.length;
+    showReview(currentIndex);
+  };
+
+  // السابق
+  window.prevReview = function () {
+    currentIndex =
+      (currentIndex - 1 + reviews.length) % reviews.length;
+    showReview(currentIndex);
+  };
+});
+</script>
 </body>
 </html>
