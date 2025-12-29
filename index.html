@@ -4,202 +4,267 @@
 <meta charset="UTF-8">
 <title>Diaa AI Pro</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#070b16;
-  --card:#0d1224;
-  --accent:#00eaff;
-  --accent2:#7b6cff;
-  --text:#ffffff;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:'Cairo',sans-serif;
-  background:radial-gradient(circle at top,#0c1330,#05070f);
-  color:var(--text);
+--bg:#070b16;
+--card:#0d1224;
+--accent:#00eaff;
+--accent2:#7b61ff;
+--text:#ffffff;
 }
 
-/* NAVBAR */
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:'Cairo',sans-serif;
+background:radial-gradient(circle at top,#0c1330,#05070f);
+color:var(--text);
+overflow-x:hidden;
+}
+
+/* NAV */
 nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  height:55px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(5,8,20,.45);
-  backdrop-filter:blur(10px);
-  z-index:1000;
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:10px;
+background:rgba(5,7,15,.6);
+backdrop-filter:blur(12px);
+z-index:1000;
 }
+
 .logo{
-  font-size:15px;
-  font-weight:700;
-  letter-spacing:2px;
-  color:var(--accent);
-  display:flex;
-  align-items:center;
-  gap:8px;
+font-weight:700;
+letter-spacing:3px;
+color:var(--accent);
+font-size:14px;
+display:flex;
+align-items:center;
+gap:8px;
 }
+
 .logo::before{
-  content:"🤖";
-  animation:bot 3s infinite;
+content:"🤖";
+animation:bot 3s infinite;
 }
+
 @keyframes bot{
-  0%,100%{transform:rotate(0deg)}
-  50%{transform:rotate(10deg)}
+0%,100%{transform:rotate(0)}
+50%{transform:rotate(10deg)}
 }
 
 /* HERO */
 .hero{
-  padding-top:120px;
-  text-align:center;
-  position:relative;
+padding-top:120px;
+text-align:center;
+position:relative;
 }
-.hero h1{
-  font-size:36px;
-  position:relative;
-  z-index:2;
-}
-.hero::after{
-  content:"🤖";
-  font-size:140px;
-  position:absolute;
-  top:40%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  opacity:.08;
-  z-index:1;
-}
-.hero p{opacity:.8;margin-top:8px}
 
-/* SECTIONS */
-section{padding:80px 20px}
-h2{text-align:center;margin-bottom:40px}
+.hero::after{
+content:"🤖";
+font-size:140px;
+position:absolute;
+top:45%;
+left:50%;
+transform:translate(-50%,-50%);
+opacity:.07;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+/* SECTION */
+.section{padding:70px 0}
+.section h2{text-align:center;color:var(--accent);margin-bottom:25px}
 
 /* SERVICES */
-.services-wrapper{
-  display:flex;
-  gap:20px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
+.services-row{
+display:flex;
+gap:16px;
+overflow-x:auto;
+padding:10px 20px;
+scroll-snap-type:x mandatory;
 }
-.services-wrapper::-webkit-scrollbar{display:none}
+
+.services-row::-webkit-scrollbar{display:none}
+
 .service{
-  min-width:220px;
-  background:linear-gradient(145deg,#0f1635,#080b1c);
-  border-radius:18px;
-  padding:24px;
-  text-align:center;
-  scroll-snap-align:center;
+min-width:180px;
+background:linear-gradient(145deg,#0f1530,#090e20);
+border-radius:18px;
+padding:18px;
+text-align:center;
+scroll-snap-align:center;
+transition:.4s;
+box-shadow:0 10px 30px rgba(0,0,0,.6);
 }
-.service img{width:46px;margin-bottom:10px}
+
+.service img{
+width:48px;
+margin-bottom:10px;
+filter:drop-shadow(0 0 10px var(--accent));
+}
+
+.service a{
+display:block;
+margin-top:10px;
+color:var(--accent);
+font-size:12px;
+text-decoration:none;
+}
 
 /* TESTIMONIALS */
 .testimonials{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
-  max-width:1000px;
-  margin:auto;
+display:flex;
+gap:16px;
+padding:20px;
+justify-content:center;
+flex-wrap:wrap;
 }
+
 .card{
-  background:linear-gradient(145deg,#0f1635,#080b1c);
-  border-radius:18px;
-  padding:25px;
-  text-align:center;
+width:260px;
+background:var(--card);
+border-radius:16px;
+padding:18px;
+text-align:center;
 }
-.avatar{
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
-}
-.stars{color:#ffd700;margin:10px 0}
 
 /* FAQ */
-.faq{max-width:800px;margin:auto}
-.faq details{
-  background:var(--card);
-  margin-bottom:12px;
-  padding:14px;
-  border-radius:12px;
+.faq{
+max-width:850px;
+margin:auto;
+padding:20px;
+}
+
+.faq-item{
+background:linear-gradient(145deg,#0f1530,#090e20);
+border-radius:16px;
+margin-bottom:12px;
+overflow:hidden;
+transition:.4s;
+}
+
+.faq-question{
+padding:16px 18px;
+cursor:pointer;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:14px;
+}
+
+.faq-question span{
+font-size:22px;
+color:var(--accent);
+transition:.4s;
+}
+
+.faq-answer{
+max-height:0;
+overflow:hidden;
+padding:0 18px;
+font-size:13px;
+line-height:1.8;
+opacity:0;
+transition:.4s;
+}
+
+.faq-item.active .faq-answer{
+max-height:400px;
+padding:12px 18px 18px;
+opacity:.85;
+}
+
+.faq-item.active .faq-question span{
+transform:rotate(45deg);
 }
 
 /* FOOTER */
-footer{text-align:center;padding:30px;opacity:.5}
+footer{
+text-align:center;
+padding:20px;
+font-size:12px;
+opacity:.6;
+}
 </style>
 </head>
 
 <body>
 
 <nav>
-  <div class="logo">DIAA AI PRO</div>
+<div class="logo">DIAA AI PRO</div>
 </nav>
 
 <div class="hero">
-  <h1>مستقبل التكنولوجيا يبدأ من هنا</h1>
-  <p>ذكاء اصطناعي • برمجة • تصميم • حلول رقمية</p>
+<h1>مستقبل التكنولوجيا يبدأ من هنا</h1>
+<p>ذكاء اصطناعي • برمجة • تصميم • حلول رقمية</p>
 </div>
 
-<section id="services">
+<section class="section" id="services">
 <h2>خدماتنا</h2>
-<div class="services-wrapper">
-  <div class="service"><p>ذكاء اصطناعي</p></div>
-  <div class="service"><p>تطوير مواقع</p></div>
-  <div class="service"><p>تصميم UI/UX</p></div>
-  <div class="service"><p>تطبيقات موبايل</p></div>
-  <div class="service"><p>أمن سيبراني</p></div>
+
+<div class="services-row">
+<div class="service"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png"><div>إدارة فيسبوك</div><a href="#">طلب الخدمة</a></div>
+<div class="service"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"><div>إدارة إنستجرام</div><a href="#">طلب الخدمة</a></div>
+<div class="service"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"><div>يوتيوب</div><a href="#">طلب الخدمة</a></div>
+<div class="service"><img src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png"><div>تيك توك</div><a href="#">طلب الخدمة</a></div>
+<div class="service"><img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"><div>ذكاء اصطناعي</div><a href="#">طلب الخدمة</a></div>
+<div class="service"><img src="https://cdn-icons-png.flaticon.com/512/919/919851.png"><div>برمجة مواقع</div><a href="#">طلب الخدمة</a></div>
+<div class="service"><img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"><div>أمن سيبراني</div><a href="#">طلب الخدمة</a></div>
 </div>
 </section>
 
-<section>
+<section class="section">
 <h2>آراء العملاء</h2>
 <div class="testimonials">
-  <div class="card">
-    <div class="avatar">س</div>
-    <h4>سارة علي</h4>
-    <div class="stars">★★★★★</div>
-    <p>نتائج ممتازة في وقت قياسي.</p>
-  </div>
-  <div class="card">
-    <div class="avatar">م</div>
-    <h4>محمد حسن</h4>
-    <div class="stars">★★★★★</div>
-    <p>احترافية عالية جدًا.</p>
-  </div>
-  <div class="card">
-    <div class="avatar">أ</div>
-    <h4>أحمد سمير</h4>
-    <div class="stars">★★★★★</div>
-    <p>أفضل تجربة تقنية.</p>
-  </div>
+<div class="card">⭐⭐⭐⭐⭐<br>احترافية عالية</div>
+<div class="card">⭐⭐⭐⭐⭐<br>نتائج ممتازة</div>
+<div class="card">⭐⭐⭐⭐⭐<br>دعم رائع</div>
 </div>
 </section>
 
-<section id="faq">
+<section class="section">
 <h2>الأسئلة الشائعة</h2>
 <div class="faq">
-  <details><summary>كم مدة التنفيذ؟</summary>حسب حجم المشروع.</details>
-  <details><summary>هل يوجد دعم؟</summary>نعم دعم كامل.</details>
+
+<div class="faq-item">
+<div class="faq-question">هل الخدمات مضمونة؟ <span>+</span></div>
+<div class="faq-answer">نعم نعمل بأفضل استراتيجيات السوق.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">هل يوجد دعم؟ <span>+</span></div>
+<div class="faq-answer">دعم فني متواصل.</div>
+</div>
+
+<!-- WHO IS DIAA -->
+<div class="faq-item">
+<div class="faq-question">من هو ضياء محسن؟ <span>+</span></div>
+<div class="faq-answer">
+مبرمج وخبير ذكاء اصطناعي وتسويق رقمي، متخصص في بناء حلول تقنية احترافية.
+</div>
+</div>
+
 </div>
 </section>
 
-<section>
-<h2>من هو ضياء محسن</h2>
-<p style="text-align:center;max-width:700px;margin:auto;opacity:.85">
-خبير في الذكاء الاصطناعي والحلول الرقمية، يقدم تجارب عالمية المستوى.
-</p>
-</section>
+<footer>© 2025 Diaa AI Pro</footer>
 
-<footer>© Diaa AI Pro</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(q=>{
+q.onclick=()=>{
+q.parentElement.classList.toggle('active');
+};
+});
+</script>
 
 </body>
 </html>
