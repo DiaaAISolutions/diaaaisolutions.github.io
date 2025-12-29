@@ -438,41 +438,54 @@ document.write(services.map(s=>`
 <div id="chatbot-toggle">🤖</div>
 
 <footer>© 2025 Diaa AI Pro</footer>
-   
-
 <script>
-document.querySelectorAll('.faq-question').forEach(q=>{
-q.onclick=()=>q.parentElement.classList.toggle('active');
+const input = document.getElementById("chatbot-input");
+const body = document.getElementById("chatbot-body");
+
+const replies = [
+  {
+    keys: ["خدمات", "بتقدموا", "تعملوا"],
+    answer: "نقدم تصميم مواقع، شات بوت، ذكاء اصطناعي، وإدارة سوشيال ميديا 🤖"
+  },
+  {
+    keys: ["سعر", "تكلفة", "بكام"],
+    answer: "الأسعار بتختلف حسب الخدمة، ابعتلنا تفاصيلك وهنرد عليك 💰"
+  },
+  {
+    keys: ["تواصل", "اكلمكم", "رقم"],
+    answer: "تقدر تتواصل معانا من خلال صفحة الفيسبوك 📞"
+  },
+  {
+    keys: ["مدة", "وقت", "تنفيذ"],
+    answer: "مدة التنفيذ من 3 إلى 7 أيام حسب المشروع ⏱️"
+  }
+];
+
+function addMsg(text, type) {
+  const div = document.createElement("div");
+  div.className = type === "user" ? "user-msg" : "bot-msg";
+  div.innerText = text;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+document.addEventListener("keypress", function (e) {
+  if (e.key === "Enter" && input && input.value.trim() !== "") {
+    const msg = input.value.trim();
+    addMsg(msg, "user");
+    input.value = "";
+
+    let reply = "معلش مش فاهمك 😅 ممكن توضّح أكتر؟";
+
+    replies.forEach(r => {
+      r.keys.forEach(k => {
+        if (msg.includes(k)) reply = r.answer;
+      });
+    });
+
+    setTimeout(() => addMsg(reply, "bot"), 600);
+  }
 });
-
-
-<script>
-
-  const reviews = document.querySelectorAll('.review-card');
-  let currentReview = 0;
-
-  function showReview(index) {
-    reviews.forEach(review => review.classList.remove('active'));
-    reviews[index].classList.add('active');
-  }
-
-  function autoSlide() {
-    currentReview = (currentReview + 1) % reviews.length;
-    showReview(currentReview);
-  }
-
-  showReview(currentReview);
-  setInterval(autoSlide, 5000);
-
-</script>
-<script>
-  const chatbot = document.getElementById("chatbot");
-  const toggleBtn = document.getElementById("chatbot-toggle");
-
-  toggleBtn.addEventListener("click", () => {
-    chatbot.style.display =
-      chatbot.style.display === "block" ? "none" : "block";
-  });
-</script>   
+</script>  
 </body>
 </html>
