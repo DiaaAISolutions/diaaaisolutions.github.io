@@ -2,25 +2,22 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AiLzo Ai Pro</title>
-<link rel="icon" type="image/png" href="logo.png">
+
 <style>
+/* ================= RESET ================= */
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{
-  width:100%;
-  overflow-x:hidden;
+body{
   background:#050c14;
   color:#fff;
   font-family:system-ui,-apple-system,BlinkMacSystemFont;
+  overflow-x:hidden;
 }
+a{text-decoration:none;color:inherit}
 
-/* HERO */
-#hero{
-  min-height:100svh;
-  display:flex;
-  flex-direction:column;
-}
+/* ================= HERO ================= */
+#hero{min-height:100svh;display:flex;flex-direction:column}
 
 /* TOP BAR */
 .top-bar{
@@ -29,75 +26,56 @@ html,body{
   align-items:center;
   justify-content:center;
   background:rgba(10,20,40,.55);
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px)
 }
 .brand{
   color:#00d9ff;
   font-size:14px;
-  animation:brandMove 6s ease-in-out infinite alternate;
+  animation:brandMove 6s ease-in-out infinite alternate
 }
 @keyframes brandMove{
-  from{transform:translateX(-28px)}
-  to{transform:translateX(28px)}
+  from{transform:translateX(-24px)}
+  to{transform:translateX(24px)}
 }
 
-/* CONTENT */
+/* HERO CONTENT */
 .hero-content{
   flex:1;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:10px;
-  padding:14px 10px;
+  gap:12px;
+  padding:16px 10px;
   position:relative;
 }
 
 /* COUNTERS */
-.hero-counters{
-  display:flex;
-  gap:18px;
-}
-.hero-counters strong{
-  display:block;
-  font-size:13px;
-  color:#00d9ff;
-}
-.hero-counters span{
-  font-size:10px;
-  opacity:.8;
-}
+.hero-counters{display:flex;gap:20px}
+.hero-counters strong{display:block;font-size:14px;color:#00d9ff}
+.hero-counters span{font-size:11px;opacity:.75}
 
-/* ROBOT */
+/* ROBOT SVG */
 .robot-wrap{
   width:90px;
-  animation:float 4s ease-in-out infinite;
+  animation:floatHero 4s ease-in-out infinite
 }
-@keyframes float{
+@keyframes floatHero{
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-6px)}
 }
 
 /* TEXT */
-.hero-title{
-  font-size:15px;
-  color:#00d9ff;
-}
-.hero-sub{
-  font-size:11px;
-  color:#ff9f43;
-}
+.hero-title{font-size:16px;color:#00d9ff}
+.hero-sub{font-size:12px;color:#ff9f43}
 
 /* FEATURES */
-.hero-features{
-  display:flex;
-  gap:10px;
-}
+.hero-features{display:flex;gap:10px}
 .feature{
   padding:6px 10px;
   border-radius:12px;
   background:rgba(0,217,255,.08);
   border:1px solid rgba(0,217,255,.2);
-  font-size:10px;
+  font-size:10px
 }
 
 /* TECH LINE */
@@ -106,722 +84,153 @@ html,body{
   height:2px;
   background:linear-gradient(90deg,#00d9ff,#ff9f43,#00d9ff);
   background-size:200% 100%;
-  animation:flow 3s linear infinite;
+  animation:flow 3s linear infinite
 }
 @keyframes flow{
   from{background-position:0%}
   to{background-position:200%}
 }
 
-/* ===== YEAR ===== */
+/* YEAR */
 .year-wrap{
   position:absolute;
   bottom:120px;
-  direction:ltr;
   font-size:22px;
   font-weight:700;
   color:#00d9ff;
+  direction:ltr;
   display:flex;
-  align-items:flex-end;
 }
+.year-5{animation:hideFive 1.5s ease forwards 2.5s}
+@keyframes hideFive{to{opacity:0}}
 
-.year-202{letter-spacing:1px}
-
-.year-5{
-  margin-left:2px;
-  animation:hideFive 1.5s ease forwards;
-  animation-delay:2.5s;
-}
-
-/* 6 + balloon */
 .year-6-wrap{
   position:absolute;
   right:0;
-  bottom:0;
   opacity:0;
-  animation:sixEnter 10s ease-in-out forwards;
-  animation-delay:3s;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  animation:sixEnter 10s ease forwards 3s
 }
-
-.year-6{font-size:22px}
-
-.balloon{
-  width:14px;
-  height:18px;
-  background:#ff9f43;
-  border-radius:50%;
-  margin-bottom:6px;
-  animation:balloonOut 1.5s ease forwards;
-  animation-delay:12s;
-}
-
-/* Text under year */
-.new-year-text{
-  margin-top:6px;
-  font-size:11px;
-  color:#ff9f43;
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
-
-/* Fireworks */
-.firework{
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:#ff9f43;
-  box-shadow:
-    0 -10px #ff9f43,
-    7px -7px #00d9ff,
-    10px 0 #ff9f43,
-    7px 7px #00d9ff,
-    0 10px #ff9f43,
-    -7px 7px #00d9ff,
-    -10px 0 #ff9f43,
-    -7px -7px #00d9ff;
-  animation:boom 1.8s ease infinite;
-}
-
-@keyframes hideFive{to{opacity:0}}
 @keyframes sixEnter{
-  0%{transform:translateX(80px);opacity:0}
+  0%{transform:translateX(60px);opacity:0}
   20%{opacity:1}
-  100%{transform:translateX(0);opacity:1}
+  100%{transform:none;opacity:1}
 }
-@keyframes balloonOut{to{opacity:0}}
-@keyframes boom{
-  0%{transform:scale(.2);opacity:0}
-  40%{opacity:1}
-  100%{transform:scale(1);opacity:0}
-}
- /* ===== DOMAIN SALE ===== */
+
+/* ================= DOMAIN SALE ================= */
 .domain-sale{
-  margin:40px auto 0;
-  text-align:center;
+  margin:40px auto 20px;
   max-width:520px;
+  text-align:center
 }
-
-.domain-sale h2{
-  font-size:22px;
-  color:#00d9ff;
-  margin-bottom:15px;
-}
-
 .domain-box{
   border:1px solid rgba(0,217,255,.3);
   padding:20px;
   border-radius:16px;
-  background:rgba(0,0,0,.35);
-  backdrop-filter:blur(8px);
+  background:rgba(0,0,0,.35)
 }
-
-.domain-name{
-  font-size:32px;
-  font-weight:800;
-  letter-spacing:1px;
-  color:#fff;
-}
-
-.domain-desc{
-  font-size:14px;
-  opacity:.85;
-  margin-top:8px;
-}
+.domain-name{font-size:32px;font-weight:800}
+.domain-desc{font-size:14px;opacity:.85;margin-top:6px}
 
 .countdown{
   display:flex;
   justify-content:center;
   gap:12px;
-  margin:18px 0;
+  margin:18px 0
 }
-
 .countdown div{
   background:#001018;
   border-radius:12px;
   padding:10px 14px;
-  min-width:70px;
+  min-width:70px
 }
-
-.countdown span{
-  font-size:22px;
-  font-weight:700;
-  color:#00d9ff;
-}
-
-.countdown small{
-  display:block;
-  font-size:11px;
-  opacity:.7;
-}
+.countdown span{font-size:22px;color:#00d9ff;font-weight:700}
+.countdown small{font-size:11px;opacity:.7}
 
 .buy-btn{
   display:inline-block;
-  margin-top:10px;
   padding:12px 26px;
   border-radius:30px;
   background:linear-gradient(135deg,#00d9ff,#00aaff);
   color:#001018;
-  font-weight:700;
-  text-decoration:none;
-  transition:.3s;
+  font-weight:700
 }
 
-.buy-btn:hover{
-  transform:scale(1.05);
-} 
-</style>
-</head>
+/* ================= SERVICES ================= */
+.services-snap{padding:70px 16px}
+.section-title{text-align:center;color:#00d9ff;margin-bottom:20px}
 
-<body>
-
-<header id="hero">
-
-<div class="top-bar">
-  <span class="brand">AiLzo Ai Pro</span>
-</div>
-
-<div class="hero-content">
-
-<div class="hero-counters">
-  <div><strong id="orders">0</strong><span>طلبات</span></div>
-  <div><strong id="clients">0</strong><span>عملاء</span></div>
-</div>
-
-<div class="robot-wrap">
-<svg viewBox="0 0 200 260">
-<ellipse cx="100" cy="70" rx="70" ry="55" fill="#fff"/>
-<ellipse cx="100" cy="80" rx="52" ry="38" fill="#6b8790"/>
-<circle cx="80" cy="78" r="7" fill="#00d9ff"/>
-<circle cx="120" cy="78" r="7" fill="#00d9ff"/>
-<path d="M85 95 Q100 105 115 95" stroke="#000" stroke-width="4" fill="none"/>
-<rect x="65" y="130" width="70" height="90" rx="18" fill="#fff"/>
-</svg>
-</div>
-<h1 class="hero-title">يرحب بك AiLzo Ai Pro</h1>
-<p class="hero-sub">ألقي نظرة على خدماتنا</p>
-
-<div class="hero-features">
-  <div class="feature">سرعة تنفيذ</div>
-  <div class="feature">أمان كامل</div>
-  <div class="feature">حلول ذكية</div>
-</div>
-
-<div class="tech-line"></div>
-
-<!-- YEAR -->
-<div class="year-wrap">
-  <span class="year-202">202</span>
-  <span class="year-5">5</span>
-
-  <div class="year-6-wrap">
-    <div class="balloon"></div>
-    <div class="year-6">6</div>
-  </div>
-</div>
-
-<div class="new-year-text">
-  مرحبا بعامٍ جديد من الابتكار والتطور
-  <div class="firework"></div>
-</div>
-
-</div>
- <!-- DOMAIN SALE SECTION -->
-<section class="domain-sale reveal delay2">
-  <h2>Premium Domain For Sale</h2>
-
-  <div class="domain-box">
-    <span class="domain-name">ailzo.com</span>
-    <p class="domain-desc">
-      Brandable • Short • Global • Perfect for AI & Tech
-    </p>
-  </div>
-
-  <div class="countdown">
-    <div><span id="d">00</span><small>Days</small></div>
-    <div><span id="h">00</span><small>Hours</small></div>
-    <div><span id="m">00</span><small>Minutes</small></div>
-    <div><span id="s">00</span><small>Seconds</small></div>
-  </div>
-
-  <a href="mailto:info@ailzo.com" class="buy-btn">
-    Contact to Buy
-  </a>
-</section>
-</header>
-
-<script>
-function slowCounter(id,target){
-  let el=document.getElementById(id),n=0,step=target/500;
-  let i=setInterval(()=>{
-    n+=step;
-    if(n>=target){
-      el.textContent=target.toLocaleString();
-      clearInterval(i);
-    }else{
-      el.textContent=Math.floor(n).toLocaleString();
-    }
-  },35);
-}
-setTimeout(()=>{
-  slowCounter("orders",270546);
-  slowCounter("clients",28649);
-},800);
-</script>
-
-</body>
-</html>
-<!-- ================= SERVICES – CINEMATIC 3D ================= -->
-<section class="services-snap">
-  <h2 class="section-title">خدماتنا</h2>
-
-  <!-- ROW 1 -->
-  <div class="snap-wrapper">
-    <div class="snap-track">
-      <div class="snap-item vip" data-title="الأمن السيبراني" data-desc="حماية متقدمة للمواقع والحسابات ضد الاختراق والهجمات الرقمية.">🛡️ الأمن السيبراني</div>
-      <div class="snap-item vip" data-title="الذكاء الاصطناعي" data-desc="حلول AI لأتمتة الأعمال وتحليل البيانات باحتراف.">🤖 الذكاء الاصطناعي</div>
-      <div class="snap-item vip" data-title="إنشاء مواقع" data-desc="تصميم وبرمجة مواقع عصرية سريعة ومتوافقة مع جميع الأجهزة.">💻 إنشاء مواقع</div>
-      <div class="snap-item vip" data-title="SEO & Google" data-desc="تحسين ترتيب موقعك في نتائج البحث وزيادة الزيارات.">🔍 SEO & Google</div>
-    </div>
-  </div>
-
-  <!-- ROW 2 -->
-  <div class="snap-wrapper">
-    <div class="snap-track">
-      <div class="snap-item" data-title="فيسبوك" data-desc="زيادة متابعين وتفاعل حقيقي لحسابات فيسبوك.">فيسبوك</div>
-      <div class="snap-item" data-title="انستجرام" data-desc="تنمية حسابك على انستجرام بشكل آمن وسريع.">انستجرام</div>
-      <div class="snap-item" data-title="تيك توك" data-desc="رفع المشاهدات والتفاعل على تيك توك.">تيك توك</div>
-      <div class="snap-item" data-title="يوتيوب" data-desc="زيادة مشتركين وساعات مشاهدة لقناتك.">يوتيوب</div>
-    </div>
-  </div>
-
-  <!-- ROW 3 -->
-  <div class="snap-wrapper">
-    <div class="snap-track">
-      <div class="snap-item" data-title="تصميم لوجو" data-desc="تصميم شعارات احترافية تعبّر عن هوية مشروعك.">تصميم لوجو</div>
-      <div class="snap-item" data-title="هوية بصرية" data-desc="بناء هوية متكاملة للشركات والعلامات التجارية.">هوية بصرية</div>
-      <div class="snap-item" data-title="برمجة مواقع" data-desc="برمجة مواقع مخصصة حسب احتياجك.">برمجة مواقع</div>
-      <div class="snap-item" data-title="تطبيقات موبايل" data-desc="تطوير تطبيقات أندرويد وiOS باحتراف.">تطبيقات موبايل</div>
-    </div>
-  </div>
-
-  <!-- ROW 4 -->
-  <div class="snap-wrapper">
-    <div class="snap-track">
-      <div class="snap-item" data-title="استرجاع حسابات" data-desc="استرجاع الحسابات المعطلة أو المخترقة بأمان.">استرجاع حسابات</div>
-      <div class="snap-item" data-title="استرجاع هواتف مسروقة" data-desc="مساعدة تقنية لاسترجاع الهواتف المفقودة أو المسروقة.">استرجاع هواتف</div>
-      <div class="snap-item" data-title="باقات فودافون" data-desc="تجديد وشحن باقات فودافون بسهولة.">باقات فودافون</div>
-      <div class="snap-item" data-title="اتصالات" data-desc="شحن رصيد وباقات اتصالات بسرعة.">اتصالات</div>
-    </div> 
-  </div>
-</section>
-
-<!-- CINEMATIC MODAL -->
-<div class="cinema-overlay" id="cinemaOverlay">
-  <div class="cinema-card">
-    <h3 id="cinemaTitle"></h3>
-    <p id="cinemaDesc"></p>
-    <a id="cinemaLink" target="_blank">اطلب الخدمة</a>
-    <span class="cinema-close">✕</span>
-  </div>
-</div>
-
-<style>
-/* ================= SERVICES SNAP ================= */
-.services-snap{padding:80px 30px}
-.snap-wrapper{
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-  margin-bottom:18px
-}
-.snap-track{display:flex;gap:14px;padding:10px}
+.snap-wrapper{overflow-x:auto;margin-bottom:18px}
+.snap-track{display:flex;gap:14px}
 .snap-item{
   flex:0 0 auto;
-  scroll-snap-align:start;
   padding:14px 18px;
   border-radius:14px;
   background:rgba(0,255,255,.08);
   border:1px solid rgba(0,255,255,.25);
   cursor:pointer;
-  white-space:nowrap;
-  transition:.25s ease
+  white-space:nowrap
 }
-.snap-item:hover{
-  transform:translateY(-4px);
-  box-shadow:0 0 20px rgba(0,255,255,.35)
-}
-.vip{font-weight:700}
+.snap-item:hover{box-shadow:0 0 18px rgba(0,255,255,.35)}
 
-/* Hide scrollbar */
-.snap-wrapper::-webkit-scrollbar{display:none}
-.snap-wrapper{scrollbar-width:none}
-
-/* ================= CINEMATIC MODAL ================= */
-.cinema-overlay{
-  position:fixed;inset:0;
-  background:rgba(0,0,0,.55);
-  backdrop-filter:blur(6px);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:999
-}
-.cinema-card{
-  background:#0b1c1f;
-  padding:30px;
-  border-radius:22px;
-  max-width:340px;
-  text-align:center;
-  box-shadow:0 30px 80px rgba(0,0,0,.8);
-  transform:scale(.85) rotateX(-8deg);
-  opacity:0;
-  animation:cinemaIn .6s forwards
-}
-@keyframes cinemaIn{
-  to{transform:scale(1) rotateX(0);opacity:1}
-}
-.cinema-card h3{margin-bottom:10px}
-.cinema-card p{opacity:.9}
-.cinema-card a{
-  display:inline-block;
-  margin-top:16px;
-  padding:12px 22px;
-  background:#00ffe0;
-  color:#000;
-  border-radius:22px;
-  text-decoration:none
-}
-.cinema-close{
-  position:absolute;
-  top:12px;right:16px;
-  cursor:pointer;
-  opacity:.7
-}
-</style>
-
-<script>
-const overlay=document.getElementById("cinemaOverlay");
-document.querySelectorAll(".snap-item").forEach(item=>{
-  item.onclick=()=>{
-    const title=item.dataset.title;
-    const desc=item.dataset.desc;
-    const wa=`https://wa.me/201021292994?text=${encodeURIComponent("أريد خدمة: "+title)}`;
-    document.getElementById("cinemaTitle").textContent=title;
-    document.getElementById("cinemaDesc").textContent=desc;
-    document.getElementById("cinemaLink").href=wa;
-    overlay.style.display="flex";
-  }
-});
-document.querySelector(".cinema-close").onclick=()=>overlay.style.display="none";
-overlay.onclick=e=>{if(e.target===overlay)overlay.style.display="none"};
-</script>
-<!-- ================= PART 3 – FINAL FIX ================= -->
-<section id="trust-section">
-
-  <!-- ===== WHY DIAA AI PRO ===== -->
-  <div class="why-wrap">
-    <h2 class="section-title">لماذا AiLzo Ai Pro؟</h2>
-
-    <div class="why-grid">
-
-      <div class="why-item">
-        <div class="why-title">جودة مضمونة</div>
-        <div class="why-desc">
-          نلتزم بتقديم خدمات احترافية بمعايير عالية تناسب المشاريع الجادة.
-        </div>
-      </div>
-
-      <div class="why-item">
-        <div class="why-title">أسعار تنافسية</div>
-        <div class="why-desc">
-          باقات مرنة بأسعار مدروسة تناسب جميع الاحتياجات.
-        </div>
-      </div>
-
-      <div class="why-item">
-        <div class="why-title">توصيل سريع</div>
-        <div class="why-desc">
-          تنفيذ سريع دون التأثير على الجودة أو الأمان.
-        </div>
-      </div>
-
-      <div class="why-item">
-        <div class="why-title">دعم فني 24/7</div>
-        <div class="why-desc">
-          فريق دعم متواجد على مدار الساعة لخدمتك.
-        </div>
-      </div>
-
-      <div class="why-item">
-        <div class="why-title">أمان كامل</div>
-        <div class="why-desc">
-          حماية كاملة للبيانات باستخدام أحدث التقنيات.
-        </div>
-      </div>
-
-      <div class="why-item">
-        <div class="why-title">دفع آمن</div>
-        <div class="why-desc">
-          جميع عمليات الدفع تتم بشكل آمن 100%.
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</section>
-
-<!-- ===== WHY STYLE (إضافة فقط) ===== -->
-<style>
+/* ================= WHY ================= */
+.why-wrap{padding:60px 16px}
 .why-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:14px;
+  gap:14px
 }
-
 .why-item{
   background:rgba(0,217,255,.06);
   border:1px solid rgba(0,217,255,.2);
   border-radius:16px;
   padding:14px;
-  cursor:pointer;
-  transition:.35s;
+  cursor:pointer
+}
+.why-title{color:#00d9ff;font-size:14px}
+.why-desc{display:none;font-size:13px;margin-top:6px;opacity:.85}
+.why-item.active .why-desc{display:block}
+
+/* ================= REVIEWS ================= */
+.reviews-wrap{padding:60px 16px}
+.reviews-track{
+  display:flex;
+  gap:14px;
+  overflow-x:auto
+}
+.review-card{
+  flex:0 0 220px;
+  background:rgba(255,255,255,.05);
+  padding:14px;
+  border-radius:14px;
+  font-size:12px
 }
 
-.why-item:hover{
-  transform:translateY(-4px);
-}
-
-.why-title{
-  font-size:14px;
-  font-weight:600;
-  color:#00d9ff;
-}
-
-.why-desc{
-  display:none;
-  font-size:13px;
-  opacity:.85;
-  margin-top:8px;
-  line-height:1.5;
-}
-
-.why-item.active .why-desc{
-  display:block;
-}
-</style>
-
-<!-- ===== WHY SCRIPT (تفاعل حقيقي) ===== -->
-<script>
-document.querySelectorAll(".why-item").forEach(item=>{
-  item.addEventListener("click",()=>{
-    document.querySelectorAll(".why-item").forEach(i=>{
-      if(i!==item) i.classList.remove("active");
-    });
-    item.classList.toggle("active");
-  });
-});
-</script>
-  <!-- ===== FAQ ===== -->
-  <div class="faq-wrap">
-    <h2 class="section-title">الأسئلة الشائعة</h2>
-
-    <div class="faq-item">
-      <div class="faq-q">ما هي الخدمات المتوفرة؟</div>
-      <div class="faq-a">
-        أكثر من 100 خدمة تشمل السوشيال ميديا، الأمن السيبراني، التصميم، وإنشاء المواقع.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">كيف أطلب خدمة؟</div>
-      <div class="faq-a">
-        اختر الخدمة المناسبة وتواصل معنا مباشرة عبر واتساب.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">هل الخدمات آمنة؟</div>
-      <div class="faq-a">
-        نعم، جميع الخدمات تتم بأعلى مستوى أمان.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">هل يوجد دعم فني؟</div>
-      <div class="faq-a">
-        دعم فني متوفر 24/7.
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== REVIEWS ===== -->
-  <div class="reviews-wrap">
-    <h2 class="section-title">آراء العملاء</h2>
-
-    <div class="reviews-track">
-      <div class="review-card"><div class="stars">★★★★★</div><p>خدمة ممتازة وسريعة.</p></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p>تعامل احترافي.</p></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p>أفضل تجربة.</p></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p>مصداقية عالية.</p></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p>دعم فني ممتاز.</p></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p>أنصح به بشدة.</p></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p>خدمة موثوقة.</p></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p>تنفيذ سريع.</p></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p>تجربة رائعة.</p></div>
-      <div class="review-card"><div class="stars">★★★★★</div><p>احترافية عالية.</p></div>
-    </div>
-  </div>
-
-</section>
-<!-- ================= PART 4 : GLOBAL CLOSING ================= -->
-<section id="part4" class="part4">
-
-  <!-- ===== FINAL MESSAGE ===== -->
-  <div class="final-hero reveal">
-    <h2>
-      نحن لا نقدّم <span class="hl">خدمات</span><br>
-      نحن نبني <span class="hl">مستقبلك الرقمي</span>
-    </h2>
-    <p>حلول ذكية • تنفيذ سريع • أمان كامل</p>
-  </div>
-
-  <!-- ===== TRUST STRIP ===== -->
-  <div class="trust-strip reveal delay1">
-    <div class="trust-item">تنفيذ فوري</div>
-    <div class="trust-item">ذكاء اصطناعي</div>
-    <div class="trust-item">موثوق 100%</div>
-  </div>
-
-  <!-- ===== ROBOT ===== -->
-  <div class="robot-zone reveal delay2">
-    <div class="robot-core" id="robotCore">
-      <div class="alien-face">
-        <span class="eye left"></span>
-        <span class="eye right"></span>
-      </div>
-    </div>
-
-    <button class="robot-btn" id="robotBtn">
-      اضغط عليّ… وسأتفاعل معك
-    </button>
-
-    <p class="robot-msg" id="robotMsg">
-      ذكاء يتفاعل مع احتياجك الحقيقي
-    </p>
-  </div>
-
-  <!-- ===== REVIEWS ===== -->
-  <div class="reviews-block reveal delay3">
-    <h3>آراء عملائنا</h3>
-    <div class="reviews-track">
-      <div class="review-card">خدمة سريعة واحترافية ⭐⭐⭐⭐⭐</div>
-      <div class="review-card">أفضل منصة تعاملت معها ⭐⭐⭐⭐⭐</div>
-      <div class="review-card">دعم ممتاز ونتائج قوية ⭐⭐⭐⭐⭐</div>
-      <div class="review-card">ثقة وسرعة تنفيذ ⭐⭐⭐⭐⭐</div>
-      <div class="review-card">أنصح بها بشدة ⭐⭐⭐⭐⭐</div>
-    </div>
-  </div>
-
-  <!-- ===== FAQ ===== -->
-  <div class="faq-block reveal delay4">
-    <h3>الأسئلة الشائعة</h3>
-
-    <div class="faq-item">
-      <div class="faq-q">ما الذي يميز Ailzo Ai Pro؟ <span>+</span></div>
-      <div class="faq-a">نعتمد على حلول ذكية وتنفيذ سريع بمعايير عالمية.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">هل الخدمات آمنة؟ <span>+</span></div>
-      <div class="faq-a">نعم، جميع الخدمات تتم بأمان كامل وحماية تامة.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">هل الدعم متوفر دائمًا؟ <span>+</span></div>
-      <div class="faq-a">دعم فني 24/7 للرد على جميع الاستفسارات.</div>
-    </div>
-  </div>
-
-  <!-- ===== FINAL CTA (FIXED AS CARD) ===== -->
-  <div class="final-cta reveal delay5">
-    <div class="cta-card">
-      <p>جاهز تبدأ رحلتك الرقمية؟</p>
-      <a href="https://wa.me/201021292994" target="_blank">
-        ابدأ الآن مع AiLzo Ai Pro
-      </a>
-    </div>
-  </div>
-
-</section>
-
-<!-- ================= STYLES ================= -->
-<style>
-.part4{
-  padding:70px 16px 90px;
-  background:linear-gradient(180deg,#050c14,#040912);
-  text-align:center;
-}
-.hl{color:#00d9ff}
-
-.final-hero h2{font-size:20px;line-height:1.5}
-.final-hero p{font-size:13px;opacity:.8;margin-top:6px}
-
-.trust-strip{
-  display:flex;justify-content:center;gap:10px;margin:26px 0
-}
-.trust-item{
-  padding:8px 14px;font-size:11px;border-radius:14px;
-  border:1px solid rgba(0,217,255,.25);
-  background:rgba(0,217,255,.08)
-}
-
-/* ===== ROBOT ===== */
+/* ================= ROBOT FINAL ================= */
 .robot-zone{
-  margin:30px auto 10px;
+  margin:60px auto;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:14px;
+  gap:14px
 }
 .robot-core{
-  width:120px;
-  height:120px;
+  width:110px;
+  height:110px;
   border-radius:50%;
   background:radial-gradient(circle at 30% 30%, #7ff, #0bb 40%, #022 70%);
   box-shadow:0 0 35px rgba(0,217,255,.6);
-  position:relative;
-  animation:float 4s ease-in-out infinite;
+  animation:floatRobot 4s ease-in-out infinite
 }
-@keyframes float{
+@keyframes floatRobot{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-12px)}
+  50%{transform:translateY(-10px)}
 }
-.alien-face{
-  position:absolute;
-  inset:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:20px;
-}
+.alien-face{display:flex;justify-content:center;gap:20px;margin-top:40px}
 .eye{
   width:12px;
   height:18px;
   background:#000;
-  border-radius:50%;
-  position:relative;
-}
-.eye::after{
-  content:"";
-  position:absolute;
-  inset:3px;
-  background:#0ff;
-  border-radius:50%;
+  border-radius:50%
 }
 
 .robot-btn{
@@ -830,133 +239,113 @@ document.querySelectorAll(".why-item").forEach(item=>{
   background:rgba(0,217,255,.12);
   border:1px solid rgba(0,217,255,.35);
   color:#cfffff;
-  font-size:13px;
-  cursor:pointer;
+  font-size:13px
 }
-
-.robot-msg{
-  font-size:13px;
-  opacity:.85;
-  min-height:18px;
-}
-
-/* ===== REVIEWS ===== */
-.reviews-track{
-  display:flex;gap:14px;
-  overflow-x:auto;scroll-snap-type:x mandatory
-}
-.review-card{
-  flex:0 0 220px;
-  scroll-snap-align:start;
-  background:rgba(255,255,255,.05);
-  padding:14px;border-radius:14px;font-size:12px
-}
-
-/* ===== FAQ ===== */
-.faq-item{
-  background:rgba(255,255,255,.04);
-  border-radius:14px;margin-bottom:10px
-}
-.faq-q{
-  padding:14px;cursor:pointer;
-  display:flex;justify-content:space-between
-}
-.faq-a{display:none;padding:14px;font-size:13px;opacity:.85}
-
-/* ===== CTA CARD ===== */
-.final-cta{margin-top:40px}
-.cta-card{
-  background:rgba(0,217,255,.08);
-  border:1px solid rgba(0,217,255,.25);
-  border-radius:18px;
-  padding:22px 18px;
-  box-shadow:0 0 25px rgba(0,217,255,.15);
-}
-.cta-card p{
-  font-size:14px;
-  margin-bottom:12px;
-}
-.cta-card a{
-  display:inline-block;
-  padding:12px 22px;
-  border-radius:18px;
-  background:linear-gradient(135deg,#00d9ff,#00aaff);
-  color:#001018;
-  font-weight:600;
-  text-decoration:none;
-}
-
-/* ===== REVEAL ===== */
-.reveal{opacity:0;transform:translateY(24px);transition:.6s}
-.reveal.show{opacity:1;transform:none}
-.delay1{transition-delay:.1s}
-.delay2{transition-delay:.2s}
-.delay3{transition-delay:.3s}
-.delay4{transition-delay:.4s}
-.delay5{transition-delay:.5s}
+.robot-msg{font-size:13px;opacity:.85}
 </style>
+</head>
 
-<!-- ================= SCRIPT ================= -->
+<body>
+
+<header id="hero">
+  <div class="top-bar"><span class="brand">AiLzo Ai Pro</span></div>
+
+  <div class="hero-content">
+    <div class="hero-counters">
+      <div><strong id="orders">0</strong><span>طلبات</span></div>
+      <div><strong id="clients">0</strong><span>عملاء</span></div>
+    </div>
+
+    <div class="robot-wrap">
+      <svg viewBox="0 0 200 260">
+        <ellipse cx="100" cy="70" rx="70" ry="55" fill="#fff"/>
+        <ellipse cx="100" cy="80" rx="52" ry="38" fill="#6b8790"/>
+        <circle cx="80" cy="78" r="7" fill="#00d9ff"/>
+        <circle cx="120" cy="78" r="7" fill="#00d9ff"/>
+        <rect x="65" y="130" width="70" height="90" rx="18" fill="#fff"/>
+      </svg>
+    </div>
+
+    <h1 class="hero-title">يرحب بك AiLzo Ai Pro</h1>
+    <p class="hero-sub">حلول ذكية – تنفيذ سريع – أمان كامل</p>
+
+    <div class="hero-features">
+      <div class="feature">سرعة تنفيذ</div>
+      <div class="feature">أمان</div>
+      <div class="feature">ذكاء اصطناعي</div>
+    </div>
+
+    <div class="tech-line"></div>
+
+    <div class="year-wrap">
+      <span>202</span><span class="year-5">5</span>
+      <div class="year-6-wrap">6</div>
+    </div>
+  </div>
+</header>
+
+<section class="domain-sale">
+  <div class="domain-box">
+    <div class="domain-name">ailzo.com</div>
+    <p class="domain-desc">Premium AI & Tech Domain</p>
+  </div>
+
+  <div class="countdown">
+    <div><span id="d">0</span><small>Days</small></div>
+    <div><span id="h">0</span><small>Hours</small></div>
+    <div><span id="m">0</span><small>Minutes</small></div>
+    <div><span id="s">0</span><small>Seconds</small></div>
+  </div>
+
+  <a href="mailto:info@ailzo.com" class="buy-btn">Contact to Buy</a>
+</section>
+
+<section class="robot-zone">
+  <div class="robot-core">
+    <div class="alien-face">
+      <div class="eye"></div>
+      <div class="eye"></div>
+    </div>
+  </div>
+  <button class="robot-btn" id="robotBtn">تفاعل معي</button>
+  <p class="robot-msg" id="robotMsg">ذكاء يتفاعل معك</p>
+</section>
+
 <script>
-/* Reveal */
-const reveals=document.querySelectorAll(".reveal");
-const obs=new IntersectionObserver(e=>{
-  e.forEach(x=>x.isIntersecting&&x.target.classList.add("show"))
-},{threshold:.15});
-reveals.forEach(r=>obs.observe(r));
+/* Counters */
+function counter(id,target){
+  let n=0,el=document.getElementById(id);
+  let i=setInterval(()=>{
+    n+=Math.ceil(target/80);
+    if(n>=target){n=target;clearInterval(i)}
+    el.textContent=n.toLocaleString();
+  },30);
+}
+setTimeout(()=>{
+  counter("orders",270546);
+  counter("clients",28649);
+},800);
 
-/* FAQ */
-document.querySelectorAll(".faq-q").forEach(q=>{
-  q.onclick=()=>{
-    const a=q.nextElementSibling;
-    const open=a.style.display==="block";
-    document.querySelectorAll(".faq-a").forEach(x=>x.style.display="none");
-    document.querySelectorAll(".faq-q span").forEach(s=>s.textContent="+");
-    if(!open){
-      a.style.display="block";
-      q.querySelector("span").textContent="−";
-    }
-  }
-});
-
-/* ROBOT */
-const robotBtn=document.getElementById("robotBtn");
-const robotMsg=document.getElementById("robotMsg");
-const msgs=[
-  "أحلل طلبك الآن…",
-  "تفكير اصطناعي نشط",
-  "جاهز أنقلك لواتساب"
-];
+/* Robot */
+const msgs=["أحلل طلبك…","تفكير نشط","تحويل لواتساب"];
 let i=0;
 robotBtn.onclick=()=>{
   robotMsg.textContent=msgs[i];
-  if(i===2){
-    setTimeout(()=>location.href="https://wa.me/201021292994",1200);
-  }
+  if(i===2) setTimeout(()=>location.href="https://wa.me/201021292994",1200);
   i=(i+1)%msgs.length;
 };
-</script>
-<script>
-const targetDate = new Date("2026-01-01T00:00:00").getTime();
 
+/* Countdown */
+const target=new Date("2026-01-01").getTime();
 setInterval(()=>{
-  const now = new Date().getTime();
-  const diff = targetDate - now;
-
-  if(diff < 0) return;
-
-  document.getElementById("d").innerText =
-    Math.floor(diff / (1000*60*60*24));
-
-  document.getElementById("h").innerText =
-    Math.floor((diff / (1000*60*60)) % 24);
-
-  document.getElementById("m").innerText =
-    Math.floor((diff / (1000*60)) % 60);
-
-  document.getElementById("s").innerText =
-    Math.floor((diff / 1000) % 60);
+  const n=new Date().getTime(),d=target-n;
+  if(d<0)return;
+  dEl.innerText=Math.floor(d/86400000);
+  hEl.innerText=Math.floor(d/3600000)%24;
+  mEl.innerText=Math.floor(d/60000)%60;
+  sEl.innerText=Math.floor(d/1000)%60;
 },1000);
 </script>
+
 </body>
 </html>
